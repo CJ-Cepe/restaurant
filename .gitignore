@@ -3,4 +3,4 @@
 node_modules/
 
 # Ignore task.md
-./task.md
+task.md
