@@ -8,7 +8,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Production',
+            template: './src/index.html',
+            title: 'restaurant',
+            filename: 'index.html',
+            inject: 'head',
+            scriptLoading: 'defer',
         }),
     ],
     output: {
