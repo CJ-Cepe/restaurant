@@ -13,15 +13,17 @@ function loadHome(content){
     const about1 = document.createElement('p')
     const about2 = document.createElement('p')
     const contactUs = document.createElement('div')
-    const number = document.createElement('span')
-    const email = document.createElement('span')
+    const number = document.createElement('div')
+    const email = document.createElement('div')
 
     //clear Content
     content.textContent = '';
     content.appendChild(homeContent)
     homeContent.append(left, right);
     left.append(header, aboutUs, contactUs);
+    left.classList.add('left')
     right.appendChild(image);
+    right.classList.add('right')
     
     header.textContent = "Where Chicken Meets"
     flavor.textContent = 'flavor'
