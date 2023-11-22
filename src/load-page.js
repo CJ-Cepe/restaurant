@@ -1,3 +1,5 @@
+import { loadHome } from "./home-tab";
+
 function loadPage() {
     const body = document.querySelector('body');
     const content = document.querySelector('#content');
@@ -16,6 +18,8 @@ function loadPage() {
     body.insertBefore(navigator, content)
     navigator.append(title, option)
     option.append(home, menu, location)
+
+    loadHome(content)
 }
 
 
