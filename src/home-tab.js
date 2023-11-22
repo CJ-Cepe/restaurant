@@ -7,6 +7,7 @@ function loadHome(content){
     const left = document.createElement('div')
     const right = document.createElement('div')
     const image = document.createElement('img')
+    const headerCont = document.createElement('div')
     const header = document.createElement('span')
     const flavor = document.createElement('div')
     const aboutUs = document.createElement('div')
@@ -20,11 +21,12 @@ function loadHome(content){
     content.textContent = '';
     content.appendChild(homeContent)
     homeContent.append(left, right);
-    left.append(header, aboutUs, contactUs);
+    left.append(headerCont, aboutUs, contactUs);
     left.classList.add('left')
     right.appendChild(image);
     right.classList.add('right')
     
+    headerCont.appendChild(header)
     header.textContent = "Where Chicken Meets"
     flavor.textContent = 'flavor'
     header.appendChild(flavor)
@@ -39,8 +41,6 @@ function loadHome(content){
     email.textContent = 'info@chickndip.com'
 
     image.src = chicken
-    image.style.width = '70%';
-    image.style.height = 'auto';
 }
 
 export {loadHome}
