@@ -13,7 +13,7 @@ function loadPage() {
     menu.textContent = "Menu"
     location.textContent = "Location"
 
-    body.appendChild(navigator)
+    body.insertBefore(navigator, content)
     navigator.append(title, option)
     option.append(home, menu, location)
 }
