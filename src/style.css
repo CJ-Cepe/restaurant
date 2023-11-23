@@ -5,6 +5,8 @@
     --black1: #000000;
     --gray1: #8B8B8B;
     --gray2: #333333;
+    --gray3: #bebebe;
+    --red1: #D52827;
 
 }
 
@@ -169,3 +171,76 @@ nav > div {
         opacity: 0;
     }
 }
+
+/*---------- location ----------*/
+* {
+     /*  outline: 1px solid blue;    */
+}
+
+.location {
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    height: 85vh;
+}
+
+.location > :first-child {
+    grid-column: 1 / 2;
+    font-family: 'Open Sans', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 5rem;
+   
+}
+
+.location > :first-child > label{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.location > :first-child > label > div{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5rem;
+    color: var(--gray1)
+}
+
+.location > :first-child > input {
+    font-size: 1.5rem;
+    width: 70%;
+    border-radius: 50px;
+    background-color: var(--gray3);
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    border: none;
+    color: var(--gray2);
+}
+
+.location > :first-child > button {
+    width: 30%;
+    height: 8%;
+    border-radius: 5px;
+
+    font-size: 1.5rem;
+    background-color: var(--gray2);
+    color: var(--white1);
+}
+
+.location > :last-child {
+    grid-column: 2 / 3;
+    align-self: center;
+    justify-self: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.location > :last-child > figcaption {
+    text-align: center;
+    color: var(--red1);
+}
+
+.location > :last-child > iframe {
+    width: 800px;
+    border: 2px solid;
+}
+
