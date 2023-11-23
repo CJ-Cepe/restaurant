@@ -17,18 +17,18 @@ function loadHome(content){
     //clear Content
     content.textContent = '';
     content.appendChild(home)
-    home.append(aboutUs, contactUs, image);
+    home.append(aboutUs, contactUs, image, header);
     
-    header.appendChild(flavor)
     header.textContent = "Where Chicken Meets"
+    header.appendChild(flavor)
     flavor.textContent = 'flavor'
     
     aboutUs.append(about1, about2)
     about1.textContent = "We're a fried chicken restaurant that celebrates the global love for this delicious dish. Our menu features crispy, juicy, and flavorful chicken recipes, each paired with a homemade dip. "
     about2.textContent = "At Chick'n Dip, we're not just serving food - we're serving experiences. So come on in, and get ready to dip into deliciousness!"
     
-    contactUs.append(number, email)
     contactUs.textContent = "Contact Us:"
+    contactUs.append(number, email)
     number.textContent = '+1 (123) 456-7890'
     email.textContent = 'info@chickndip.com'
 

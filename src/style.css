@@ -13,7 +13,7 @@
 *::before, 
 *::after{
     box-sizing: border-box;
-    outline: rgb(21, 0, 255) 1px solid  
+   /*  outline: rgb(21, 0, 255) 1px solid   */
 }
 
 * {
@@ -27,6 +27,11 @@ html {
     scroll-padding-top: 15vh;
 }
 
+body::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+
+}
+
 body{
     height: 100vh;
     width: 100vw;
@@ -35,6 +40,9 @@ body{
 
     display: grid;
     grid-template-rows: 0.15fr 1fr;
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
 }
 
 nav{
@@ -71,13 +79,32 @@ nav > div {
     grid-template-rows: 1fr 1fr;
 }
 
+.home > div:first-child, 
+.home > div:nth-child(2){
+    animation: fade linear both;
+    animation-timeline: view();
+}
+
 .home > div:first-child {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     height: 85vh;
     scroll-snap-align: start;
 
-    align-self: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 0 0 5% 36%;
+}
+
+.home > div:first-child p {
+    color: var(--gray1);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1.1px;
 }
 
 .home > div:nth-child(2){
@@ -85,6 +112,23 @@ nav > div {
     grid-row: 2 / 3;
     height: 85vh;
     scroll-snap-align: start;
+
+    font-size: 2rem;
+    font-family: 'Kaushan Script', cursive;
+    color: var(--gray2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 0 10% 15% 36%;
+}
+
+.home > div:nth-child(2) div {
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--gray1);
+
+    padding-left: 10%;
 }
 
 .home > img {
@@ -96,18 +140,32 @@ nav > div {
     align-self: end;
 }
 
-/* .left > div:first-child > span > div {
+.home > span:last-child {
+    position: fixed;
+    right: 50%;
+    top: 30%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3rem;
+    text-align: end;
+}
+
+.home > span:last-child > div{
     font-family: 'Kaushan Script', cursive;
     font-size: 5.5rem;
     text-transform: capitalize;
     line-height: 1;
-} */
+}
 
-/* .left > div:nth-child(2) p{
-    color: var(--gray1);
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: 1.5rem;
-    margin-bottom: 2rem;
-    letter-spacing: 1.1px;
-} */
+@keyframes fade {
+    0%, 40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    70%, 100%{
+        opacity: 0;
+    }
+}
