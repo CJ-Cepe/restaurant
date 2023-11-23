@@ -22,6 +22,11 @@
 }
 
 /* ---------- main body ----------*/
+html {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 15vh;
+}
+
 body{
     height: 100vh;
     width: 100vw;
@@ -63,76 +68,46 @@ nav > div {
 .home {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
+    grid-template-rows: 1fr 1fr;
 }
 
-.left{
-    font-family: 'Open Sans', sans-serif;
-    grid-column: 1/2;
-    padding: 10% 0 5% 35%;
+.home > div:first-child {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    height: 85vh;
+    scroll-snap-align: start;
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    align-self: end;
 }
 
-.left > div:first-child {
-    text-align: end;
+.home > div:nth-child(2){
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    height: 85vh;
+    scroll-snap-align: start;
 }
 
-.left > div:first-child > span{
-    font-size: 2.5rem;
-    
-/* 
-    position: fixed;
-   margin-top: 0;
-   margin-left: -27%; */
+.home > img {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    width: 70%;
+    height: auto;
+
+    align-self: end;
 }
 
-.left > div:first-child > span > div {
+/* .left > div:first-child > span > div {
     font-family: 'Kaushan Script', cursive;
     font-size: 5.5rem;
     text-transform: capitalize;
     line-height: 1;
-}
+} */
 
-.left > div:nth-child(2){
-    /* margin-top: 35%; */
-}
-
-.left > div:nth-child(2) p{
+/* .left > div:nth-child(2) p{
     color: var(--gray1);
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.5rem;
     margin-bottom: 2rem;
     letter-spacing: 1.1px;
-}
-
-.left > div:last-child {
-    font-size: 1.5rem;
-    color: var(--gray2);
-    font-family: 'Kaushan Script', cursive;
-}
-
-.left > div:last-child div {
-    font-size: 2rem;
-    color: var(--gray1);
-    font-family: 'Open Sans', sans-serif;
-}
-
-.right{
-    grid-column: 2/3;
-   scroll-snap-align: start;
-}
-
-.right > img{
-    width: 65%;
-    height: auto;
-   
-  /*   position: relative;
-    left: -2%;
-    top: 1%;
-    z-index: -1; */
-}
+} */
