@@ -1,4 +1,6 @@
 import { loadHome } from "./home-tab";
+import { loadLocation } from "./location-tab";
+import { loadMenu } from "./load-menu";
 
 function loadPage() {
     const body = document.querySelector('body');
@@ -19,7 +21,9 @@ function loadPage() {
     navigator.append(title, option)
     option.append(home, menu, location)
 
-    loadHome(content)
+    //loadHome(content)
+    //loadLocation(content)
+    loadMenu(content)
 }
 
 
