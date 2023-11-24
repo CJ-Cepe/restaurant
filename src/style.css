@@ -173,9 +173,6 @@ nav > div {
 }
 
 /*---------- location ----------*/
-* {
-     /*  outline: 1px solid blue;    */
-}
 
 .location {
     display: grid;
@@ -244,3 +241,72 @@ nav > div {
     border: 2px solid;
 }
 
+/*---------- menu ----------*/
+* {
+    /* outline: 1px solid blue;   */
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+}
+
+.menu > :first-child {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 2rem;
+}
+
+.menu > div:first-child > ul {
+    list-style-type: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    border: 1px solid var(--gray1);
+    padding: 1rem;
+}
+
+.menu li:first-child {
+    margin-bottom: 1rem;
+}
+
+.menu > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30%);
+    row-gap: 5rem;
+}
+
+.menu .food-card {
+    grid-column: span 1;
+   transition: 0.3s;
+    width: 200px;
+    aspect-ratio: 1 /1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu .food-image {
+    width: 150px;
+}
+
+.menu .food-card:hover  {
+    transform: scale(1.2);
+}
+
+.menu .food-card:hover .food-title {
+    color: var(--red1);
+}
+
+.menu .food-title {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.5rem;
+    text-align: center; 
+    transition: 0.2s;
+}
+
+.menu .food-title > span {
+    display: block;
+}

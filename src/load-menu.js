@@ -24,7 +24,12 @@ function loadMenu(content) {
   for (let i = 1; i < 5; i++) {
     const food = document.createElement('div')
     const foodImage = document.createElement('img')
-    const foodTitle = document.createElement('div')
+    const foodTitle = document.createElement('p')
+    const foodNewLine = document.createElement('span')
+    foodImage.classList.add('food-image')
+    foodTitle.classList.add('food-title')
+    food.classList.add('food-card')
+    foodNewLine.textContent = 'Chicken'
 
     foodCont.appendChild(food)
     food.append(foodImage, foodTitle)
@@ -32,21 +37,22 @@ function loadMenu(content) {
     switch (i) {
       case 1:
         foodImage.src = chicken1
-        foodTitle.textContent = 'Classic Crispy Chicken'
+        foodTitle.textContent = 'Classic Crispy'
         break
       case 2:
         foodImage.src = chicken2
-        foodTitle.textContent = 'Spicy Hot Chicken'
+        foodTitle.textContent = 'Spicy Hot'
         break
       case 3:
         foodImage.src = chicken3
-        foodTitle.textContent = 'Garlic Parmesan Chicken'
+        foodTitle.textContent = 'Garlic Parmesan'
         break
       case 4:
         foodImage.src = chicken4
-        foodTitle.textContent = 'Honey Glazed Chicken'
+        foodTitle.textContent = 'Honey Glazed'
         break
     }
+    foodTitle.appendChild(foodNewLine)
   }
 }
 
