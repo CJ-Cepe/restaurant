@@ -21,9 +21,47 @@ function loadPage() {
     navigator.append(title, option)
     option.append(home, menu, location)
 
-    //loadHome(content)
-    //loadLocation(content)
-    loadMenu(content)
+    setTab(home)
+    loadHome(content)
+
+    home.addEventListener('click', () => {
+        if(!home.classList.contains('activeTab')){
+            setTab(home)
+            loadHome(content)
+        }
+        
+    })
+
+    menu.addEventListener('click', () => {
+        if(!menu.classList.contains('activeTab')){
+            setTab(menu)
+            loadMenu(content)
+        }
+    })
+
+    location.addEventListener('click', () => {
+        if(!location.classList.contains('activeTab')){
+            setTab(location)
+            loadLocation(content)
+        }
+    })
+}
+
+//to extract 
+function setTab(activeTab){
+    removeActive()
+    addActive(activeTab)
+}
+
+function removeActive(){
+    let tabs = Array.from(document.querySelectorAll('nav > div span'))
+    tabs.forEach(tab => {
+        tab.classList.remove('activeTab')
+    });
+}
+
+function addActive(activeTab){
+    activeTab.classList.add('activeTab')
 }
 
 
