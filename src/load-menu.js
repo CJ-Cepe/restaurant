@@ -2,6 +2,8 @@ import chicken1 from './assets/classic-0.png'
 import chicken2 from './assets/spicy-0.png'
 import chicken3 from './assets/parmesan-0.png'
 import chicken4 from './assets/honey-0.png'
+import foods from './content.json'
+import { collectImages } from './utilities'
 
 function loadMenu(content) {
   const menu = document.createElement('div')
@@ -30,9 +32,14 @@ function loadMenu(content) {
     foodTitle.classList.add('food-title')
     food.classList.add('food-card')
     foodNewLine.textContent = 'Chicken'
-
     foodCont.appendChild(food)
     food.append(foodImage, foodTitle)
+
+    food.addEventListener('click', (e)=> {
+        let children = Array.from(foodCont.children)
+        let index = children.indexOf(food)
+        showFood(content, ++index)
+    })
 
     switch (i) {
       case 1:
@@ -54,6 +61,72 @@ function loadMenu(content) {
     }
     foodTitle.appendChild(foodNewLine)
   }
+}
+
+//to be extracted
+function showFood(content, index){
+    const modal = document.createElement('dialog')
+    const h1 = document.createElement('h1')
+    const p1 = document.createElement('p')
+    const h2 = document.createElement('h2')
+    const p2 = document.createElement('p')
+    //add images
+    const imageCont = document.createElement('div')
+    const infoCont = document.createElement('div')
+    const hr = document.createElement('hr')
+    let info = setContent(index)
+
+    setImages(imageCont, index)
+
+    content.appendChild(modal)
+    modal.showModal()
+    modal.append(imageCont, infoCont)
+    infoCont.append(h1, p1, hr, h2, p2)
+
+    h1.textContent = info.header1
+    p1.textContent = info.paragraph1
+    h2.textContent = info.header2
+    p2.textContent = info.paragraph2
+}
+
+function setImages(imageCont, index){
+    let images = collectImages(index)
+
+    images.forEach(image => {
+        let img  = document.createElement('img')
+        img.src = image
+        imageCont.appendChild(img)
+    });
+}
+
+function setContent(a){
+    let header1, paragraph1, header2, paragraph2;
+    header2 = "Nutritional & Allergen Information"
+
+    switch(a){
+        case 1: 
+            header1 = foods.food1.header;
+            paragraph1 = foods.food1.content1;
+            paragraph2 = foods.food1.content2;
+            break;
+        case 2: 
+            header1 = foods.food2.header;
+            paragraph1 = foods.food2.content1;
+            paragraph2 = foods.food2.content2;
+            break;
+        case 3: 
+            header1 = foods.food3.header;
+            paragraph1 = foods.food3.content1;
+            paragraph2 = foods.food3.content2;
+            break;
+        case 4: 
+            header1 = foods.food4.header;
+            paragraph1 = foods.food4.content1;
+            paragraph2 = foods.food4.content2;
+            break; 
+    }
+
+    return {header1, paragraph1, header2, paragraph2}
 }
 
 export { loadMenu }

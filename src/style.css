@@ -337,3 +337,69 @@ nav > div span:hover {
 .menu .food-title > span {
     display: block;
 }
+
+/* -------- Modal ---------*/
+*{
+  /*   outline: 1px solid blue; */
+}
+dialog{
+    width:60vw;
+    height: 35vw;
+
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    border: none;
+}
+
+
+dialog > div:first-child {
+    flex-basis: 50%;
+}
+
+dialog img {
+    width: 100%;
+}
+
+dialog > div:nth-child(2) {
+    flex-basis: 50%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 1rem;
+}
+
+dialog > div:nth-child(2) h1{
+   font-family: 'Kaushan Script', cursive;
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+}
+
+dialog > div:nth-child(2) p:nth-child(2){
+    font-size: 1.5rem;
+ }
+
+ dialog > div:nth-child(2) hr {
+    margin: 1rem 0;
+    width: 80%;
+    align-self: center;
+}
+
+ dialog > div:nth-child(2) h2{
+    font-size: 1.5rem;
+ }
+
+dialog > div:nth-child(2) > p:nth-child(5){
+    font-size: 1rem;
+    color: var(--gray1);
+ }

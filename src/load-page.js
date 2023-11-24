@@ -29,7 +29,6 @@ function loadPage() {
             setTab(home)
             loadHome(content)
         }
-        
     })
 
     menu.addEventListener('click', () => {
