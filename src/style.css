@@ -69,9 +69,20 @@ nav > span {
 
 nav > div {
     font-size: 1.5rem;
+    color: var(--gray1);
+    transition: 0.2s;
 
     display: flex;
     gap: 5vw;
+}
+
+nav > div span:hover {
+    color: var(--gray2);
+}
+
+.activeTab {
+    color: var(--gray2);
+    text-decoration: 2px underline var(--gray2);
 }
 
 /* ---------- home ----------*/
@@ -266,8 +277,24 @@ nav > div {
     padding: 1rem;
 }
 
+.menu li {
+    color: var(--gray1);
+    transition: 0.2s;
+}
+
 .menu li:first-child {
     margin-bottom: 1rem;
+}
+
+.menu li:hover{
+    color: var(--gray2);
+    font-weight: 700 ;
+}
+
+.activeOption {
+    color: var(--gray2);
+    font-weight: 700 ;
+    text-decoration: 2px underline var(--gray2);
 }
 
 .menu > div:nth-child(2) {
