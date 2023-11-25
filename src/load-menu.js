@@ -96,12 +96,11 @@ function showFood(content, index){
 
 function closeModal(e, modal){
   const dialogDimensions = modal.getBoundingClientRect()
-  console.log("remove")
   if(
     e.clientX < dialogDimensions.left ||
     e.clientX > dialogDimensions.right ||
-    e.clienty < dialogDimensions.top ||
-    e.clienty > dialogDimensions.bottom
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
     ){
     document.querySelector('.content')
     modal.close()
@@ -109,15 +108,13 @@ function closeModal(e, modal){
   }
 }
 
-function setImages(imageCont, index){
+async function setImages(imageCont, index){
   const imageSlider = document.createElement('div')
   const imageNav = document.createElement('div')
   const images = collectImages(index)
-  const rightArrow = document.createElement('a')
-  const leftArrow = document.createElement('a')
 
   for(let i = 0; i < images.length; i++){
-      const img  = document.createElement('img')
+      const img  = await preloadImage(images[i]);
       const anchor = document.createElement('a')
 
       img.src = images[i]
@@ -129,9 +126,18 @@ function setImages(imageCont, index){
     }
     
     imageCont.append(imageSlider, imageNav)
-
-
 }
+
+function preloadImage(src) {
+  return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = src;
+  });
+}
+
+
 
 function setContent(a){
     let header1, paragraph1, header2, paragraph2;
@@ -162,5 +168,17 @@ function setContent(a){
 
     return {header1, paragraph1, header2, paragraph2}
 }
+
+document.addEventListener('keydown', e => {
+  if(e.key === "Escape"){
+    try {
+      let modal = document.querySelector('dialog')
+      modal.close()
+      modal.remove()
+    } catch (e){
+      //console.log('no modal')
+    }
+  }
+})
 
 export { loadMenu }
