@@ -88,29 +88,20 @@ function showFood(content, index){
     p1.textContent = info.paragraph1
     h2.textContent = info.header2
     p2.textContent = info.paragraph2
-
-
-    
-    /*  Image Container
-        slider - holds images
-          images id="ID-1"
-          images
-          images
-        sliderNav
-          a href= Image ID-1
-          a href= Image ID-2
-          a href= Image ID-3
-    */
 }
 
 function setImages(imageCont, index){
   const imageSlider = document.createElement('div')
   const imageNav = document.createElement('div')
   const images = collectImages(index)
+  const rightArrow = document.createElement('a')
+  const leftArrow = document.createElement('a')
+
+  
 
     for(let i = 0; i < images.length; i++){
-      let img  = document.createElement('img')
-      let anchor = document.createElement('a')
+      const img  = document.createElement('img')
+      const anchor = document.createElement('a')
 
       img.src = images[i]
       img.id = `image-${i}`
@@ -120,7 +111,31 @@ function setImages(imageCont, index){
       imageNav.appendChild(anchor)
     }
 
-    imageCont.append(imageSlider, imageNav)
+    imageCont.append(imageSlider, imageNav, leftArrow, rightArrow)
+
+    let position = 0;
+    rightArrow.classList.add('arrow')
+    leftArrow.classList.add('arrow')
+    rightArrow.textContent = '>'
+    leftArrow.textContent = '<'
+
+    rightArrow.addEventListener('click', ()=>{
+      if(position != images.length - 1){
+        rightArrow.href = `#image-${++position}`
+      } else {
+        position = 0;
+        rightArrow.href = `#image-${position}`
+      }
+    })
+
+    leftArrow.addEventListener('click', ()=>{
+      if(position != 0){
+        leftArrow.href = `#image-${--position}`
+      } else {
+        position = images.length-1;
+        leftArrow.href = `#image-${position}`
+      }
+    })
 }
 
 function setContent(a){

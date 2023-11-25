@@ -69,14 +69,19 @@ nav > span {
 
 nav > div {
     font-size: 1.5rem;
-    color: var(--gray1);
+    
     transition: 0.2s;
 
     display: flex;
     gap: 5vw;
 }
 
-nav > div span:hover {
+nav > div a {
+    text-decoration: none;
+    color: var(--gray1); 
+}
+
+nav > div a:hover {
     color: var(--gray2);
 }
 
@@ -447,4 +452,28 @@ dialog > div:nth-child(2) > p:nth-child(5){
 
 .image-cont > div:nth-child(2) a:hover{
     opacity: 1;
+}
+
+.image-cont .arrow {
+    font-family:'Open Sans', sans-serif; ;
+    font-size: 3rem;
+    font-weight:bolder;
+    color: var(--gray1);
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    text-decoration: none;
+    transform: translateY(-50%);
+}
+
+.image-cont .arrow:hover {
+    color: var(--red1);
+}
+
+.image-cont > a:nth-child(3){
+    right: 90%;
+}
+
+.image-cont > a:nth-child(4){
+    left: 90%;
 }

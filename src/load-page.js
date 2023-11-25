@@ -8,14 +8,18 @@ function loadPage() {
     const navigator = document.createElement('nav');
     const title = document.createElement('span')
     const option = document.createElement('div')
-    const home = document.createElement('span')
-    const menu = document.createElement('span')
-    const location = document.createElement('span')
+    const home = document.createElement('a')
+    const menu = document.createElement('a')
+    const location = document.createElement('a')
 
     title.textContent = "Chick'n Dip"
     home.textContent = "Home"
     menu.textContent = "Menu"
     location.textContent = "Location"
+
+    home.href="#"
+    menu.href="#"
+    location.href="#"
 
     body.insertBefore(navigator, content)
     navigator.append(title, option)
@@ -53,7 +57,7 @@ function setTab(activeTab){
 }
 
 function removeActive(){
-    let tabs = Array.from(document.querySelectorAll('nav > div span'))
+    let tabs = Array.from(document.querySelectorAll('nav > div a'))
     tabs.forEach(tab => {
         tab.classList.remove('activeTab')
     });
