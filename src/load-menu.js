@@ -74,8 +74,9 @@ function showFood(content, index){
     const imageCont = document.createElement('div')
     const infoCont = document.createElement('div')
     const hr = document.createElement('hr')
-    let info = setContent(index)
+    const info = setContent(index)
 
+    imageCont.classList.add('image-cont')
     setImages(imageCont, index)
 
     content.appendChild(modal)
@@ -87,16 +88,39 @@ function showFood(content, index){
     p1.textContent = info.paragraph1
     h2.textContent = info.header2
     p2.textContent = info.paragraph2
+
+
+    
+    /*  Image Container
+        slider - holds images
+          images id="ID-1"
+          images
+          images
+        sliderNav
+          a href= Image ID-1
+          a href= Image ID-2
+          a href= Image ID-3
+    */
 }
 
 function setImages(imageCont, index){
-    let images = collectImages(index)
+  const imageSlider = document.createElement('div')
+  const imageNav = document.createElement('div')
+  const images = collectImages(index)
 
-    images.forEach(image => {
-        let img  = document.createElement('img')
-        img.src = image
-        imageCont.appendChild(img)
-    });
+    for(let i = 0; i < images.length; i++){
+      let img  = document.createElement('img')
+      let anchor = document.createElement('a')
+
+      img.src = images[i]
+      img.id = `image-${i}`
+      anchor.href = `#image-${i}`
+
+      imageSlider.appendChild(img)
+      imageNav.appendChild(anchor)
+    }
+
+    imageCont.append(imageSlider, imageNav)
 }
 
 function setContent(a){

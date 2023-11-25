@@ -359,15 +359,6 @@ dialog{
     border: none;
 }
 
-
-dialog > div:first-child {
-    flex-basis: 50%;
-}
-
-dialog img {
-    width: 100%;
-}
-
 dialog > div:nth-child(2) {
     flex-basis: 50%;
     height: 100%;
@@ -403,3 +394,57 @@ dialog > div:nth-child(2) > p:nth-child(5){
     font-size: 1rem;
     color: var(--gray1);
  }
+
+ /* ----- slider ------- */
+ * {
+   /*  outline: 1px solid blue; */
+ }
+
+ .image-cont {
+    width: 50%;
+    position: relative;
+    
+    /* max-width: 48rem;
+    margin: 0 auto;  */
+ }
+
+ .image-cont > div:first-child {
+    width: 100%;
+
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    display: flex;
+ }
+
+ .image-cont > div:first-child img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    scroll-snap-align: start;
+    object-fit: contain;
+ }
+
+.image-cont > div:nth-child(2){
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 93%;
+    transform: translateX(-50%);
+    
+    display: flex;
+    column-gap: 1.5rem;
+ }
+
+.image-cont > div:nth-child(2) a {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: var(--gray1);
+    opacity: 0.50;
+    transition: 0.2s;
+ }
+
+.image-cont > div:nth-child(2) a:hover{
+    opacity: 1;
+}
