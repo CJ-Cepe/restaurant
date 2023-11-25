@@ -347,7 +347,7 @@ nav > div a:hover {
 *{
   /*   outline: 1px solid blue; */
 }
-dialog{
+dialog[open]{
     width:60vw;
     height: 35vw;
 

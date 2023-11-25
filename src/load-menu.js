@@ -88,6 +88,23 @@ function showFood(content, index){
     p1.textContent = info.paragraph1
     h2.textContent = info.header2
     p2.textContent = info.paragraph2
+
+    modal.addEventListener('click', (e) => {
+      closeModal(e, modal)
+    } )
+}
+
+function closeModal(e, modal){
+  const dialogDimensions = modal.getBoundingClientRect()
+  console.log("remove")
+  if(
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clienty < dialogDimensions.top ||
+    e.clienty > dialogDimensions.bottom
+    ){
+    modal.close()
+  }
 }
 
 function setImages(imageCont, index){
@@ -97,9 +114,7 @@ function setImages(imageCont, index){
   const rightArrow = document.createElement('a')
   const leftArrow = document.createElement('a')
 
-  
-
-    for(let i = 0; i < images.length; i++){
+  for(let i = 0; i < images.length; i++){
       const img  = document.createElement('img')
       const anchor = document.createElement('a')
 
