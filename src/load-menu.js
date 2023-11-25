@@ -103,7 +103,9 @@ function closeModal(e, modal){
     e.clienty < dialogDimensions.top ||
     e.clienty > dialogDimensions.bottom
     ){
+    document.querySelector('.content')
     modal.close()
+    modal.remove()
   }
 }
 
@@ -125,32 +127,10 @@ function setImages(imageCont, index){
       imageSlider.appendChild(img)
       imageNav.appendChild(anchor)
     }
+    
+    imageCont.append(imageSlider, imageNav)
 
-    imageCont.append(imageSlider, imageNav, leftArrow, rightArrow)
 
-    let position = 0;
-    rightArrow.classList.add('arrow')
-    leftArrow.classList.add('arrow')
-    rightArrow.textContent = '>'
-    leftArrow.textContent = '<'
-
-    rightArrow.addEventListener('click', ()=>{
-      if(position != images.length - 1){
-        rightArrow.href = `#image-${++position}`
-      } else {
-        position = 0;
-        rightArrow.href = `#image-${position}`
-      }
-    })
-
-    leftArrow.addEventListener('click', ()=>{
-      if(position != 0){
-        leftArrow.href = `#image-${--position}`
-      } else {
-        position = images.length-1;
-        leftArrow.href = `#image-${position}`
-      }
-    })
 }
 
 function setContent(a){
