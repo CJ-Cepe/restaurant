@@ -112,6 +112,9 @@ async function setImages(imageCont, index){
   const imageSlider = document.createElement('div')
   const imageNav = document.createElement('div')
   const images = collectImages(index)
+  const rightArrow = document.createElement('a')
+  const leftArrow = document.createElement('a')
+
 
   for(let i = 0; i < images.length; i++){
       const img  = await preloadImage(images[i]);
@@ -125,7 +128,32 @@ async function setImages(imageCont, index){
       imageNav.appendChild(anchor)
     }
     
-    imageCont.append(imageSlider, imageNav)
+    imageCont.append(imageSlider, imageNav, leftArrow, rightArrow)
+
+    let position = 0;
+    rightArrow.textContent = '>'
+    leftArrow.textContent = '<'
+    rightArrow.classList.add('arrow')
+    leftArrow.classList.add('arrow')
+
+    rightArrow.addEventListener('click', ()=>{
+      if(position != images.length - 1){
+        rightArrow.href = `#image-${++position}`
+      } else {
+        position = 0;
+        rightArrow.href = `#image-${position}`
+      }
+    })
+
+    leftArrow.addEventListener('click', ()=>{
+      if(position != 0){
+        leftArrow.href = `#image-${--position}`
+      } else {
+        position = images.length-1;
+        leftArrow.href = `#image-${position}`
+      }
+    })
+
 }
 
 function preloadImage(src) {
