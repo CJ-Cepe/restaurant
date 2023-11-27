@@ -1,4 +1,4 @@
-import { loadPage } from "./load-page";
-import "./style.css";
+import { loadPage } from './load-page'
+import './style.css'
 
 loadPage()

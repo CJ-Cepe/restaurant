@@ -1,5 +1,4 @@
 function loadLocation(content) {
-  
   const location = document.createElement('div')
   location.classList.add('location', 'tab-page')
   const form = document.createElement('form')
