@@ -87,7 +87,7 @@ nav > div a:hover {
 
 .activeTab {
     color: var(--gray2);
-    text-decoration: 2px underline var(--gray2);
+    
 }
 
 /* ---------- home ----------*/
@@ -296,13 +296,12 @@ nav > div a:hover {
     font-weight: 700 ;
 }
 
-.activeOption {
-    color: var(--gray2);
+.menu .activeOption {
+    color: var(--black1);
     font-weight: 700 ;
-    text-decoration: 2px underline var(--gray2);
 }
 
-.menu > div:nth-child(2) {
+.menu > div:nth-child(2) { 
     display: grid;
     grid-template-columns: repeat(auto-fit, 30%);
     row-gap: 5rem;

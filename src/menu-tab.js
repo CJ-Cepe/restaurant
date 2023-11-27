@@ -3,9 +3,9 @@ import chicken2 from './assets/spicy-0.png'
 import chicken3 from './assets/parmesan-0.png'
 import chicken4 from './assets/honey-0.png'
 
-import sauce1 from "./assets/garlic-sauce.png"
-import sauce2 from "./assets/honey-sauce.png"
-import sauce3 from "./assets/spicy-sauce.png"
+import sauce1 from "./assets/honey-sauce.png"
+import sauce2 from "./assets/spicy-sauce.png"
+import sauce3 from "./assets/garlic-sauce.png"
 import sauce4 from "./assets/sweet-sauce.png"
 
 import foods from './content.json'
@@ -29,17 +29,18 @@ function loadMenu(content) {
   chickenList.textContent = 'Chicken'
   dipsList.textContent = 'Dips'
   generateMenu(foodCont)
+  chickenList.classList.add('activeOption')
 
   chickenList.addEventListener('click', () => {
     if (!chickenList.classList.contains('activeOption')) {
-      //remove active from diplist
+      setTab(chickenList)
       generateMenu(foodCont)
     }
   })
 
   dipsList.addEventListener('click', () => {
-    if (!menu.classList.contains('activeOption')) {
-      //remove active from chickenlist
+    if (!dipsList.classList.contains('activeOption')) {
+      setTab(dipsList)
       generateDips(foodCont)
     }
   })
@@ -124,6 +125,24 @@ function generateDips(foodCont) {
     foodTitle.appendChild(foodNewLine)
   }
 }
+
+/* ------ helper functions ------ */
+function setTab(activeTab) {
+  removeActive()
+  addActive(activeTab)
+}
+
+function removeActive() {
+  const tabs = Array.from(document.querySelectorAll('.menu > div > ul li'))
+  tabs.forEach(tab => {
+    tab.classList.remove('activeOption')
+  })
+}
+
+function addActive(activeTab) {
+  activeTab.classList.add('activeOption')
+}
+
 
 /* ------ helper functions ------ */
 function showFood(content, index) {
