@@ -1,6 +1,6 @@
 import { loadHome } from "./home-tab";
 import { loadLocation } from "./location-tab";
-import { loadMenu } from "./load-menu";
+import { loadMenu } from "./menua-tab";
 
 function loadPage() {
     const body = document.querySelector('body');
@@ -50,7 +50,7 @@ function loadPage() {
     })
 }
 
-//to extract 
+/* ------ helper functions ------ */
 function setTab(activeTab){
     removeActive()
     addActive(activeTab)

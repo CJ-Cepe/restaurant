@@ -2,8 +2,9 @@ import chicken1 from './assets/classic-0.png'
 import chicken2 from './assets/spicy-0.png'
 import chicken3 from './assets/parmesan-0.png'
 import chicken4 from './assets/honey-0.png'
+
 import foods from './content.json'
-import { collectImages } from './utilities'
+import { collectImages } from './collect-images'
 
 function loadMenu(content) {
   const menu = document.createElement('div')
@@ -63,7 +64,7 @@ function loadMenu(content) {
   }
 }
 
-//to be extracted
+/* ------ helper functions ------ */
 function showFood(content, index){
     const modal = document.createElement('dialog')
     const h1 = document.createElement('h1')
@@ -115,7 +116,6 @@ async function setImages(imageCont, index){
   const rightArrow = document.createElement('a')
   const leftArrow = document.createElement('a')
 
-
   for(let i = 0; i < images.length; i++){
       const img  = await preloadImage(images[i]);
       const anchor = document.createElement('a')
@@ -164,8 +164,6 @@ function preloadImage(src) {
       img.src = src;
   });
 }
-
-
 
 function setContent(a){
     let header1, paragraph1, header2, paragraph2;
