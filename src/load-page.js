@@ -1,6 +1,6 @@
 import { loadHome } from './home-tab'
 import { loadLocation } from './location-tab'
-import { loadMenu } from './menua-tab'
+import { loadMenu } from './menu-tab'
 
 function loadPage() {
   const body = document.querySelector('body')

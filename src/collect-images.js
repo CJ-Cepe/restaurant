@@ -21,10 +21,7 @@ import spicy4 from './assets/spicy-4.jpg'
 /* Other links
 "./assets/chick-home-0.png"
 
-"./assets/garlic-sauce.jpg"
-"./assets/honey-sauce.jpg"
-"./assets/spicy-sauce.jpg"
-"./assets/sweet-sauce.jpg"
+
 
 "./assets/spicy-0.png"
 "./assets/parmesan-0.png"

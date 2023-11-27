@@ -3,6 +3,11 @@ import chicken2 from './assets/spicy-0.png'
 import chicken3 from './assets/parmesan-0.png'
 import chicken4 from './assets/honey-0.png'
 
+import sauce1 from "./assets/garlic-sauce.png"
+import sauce2 from "./assets/honey-sauce.png"
+import sauce3 from "./assets/spicy-sauce.png"
+import sauce4 from "./assets/sweet-sauce.png"
+
 import foods from './content.json'
 import { collectImages } from './collect-images'
 
@@ -23,6 +28,25 @@ function loadMenu(content) {
   listParent.append(chickenList, dipsList)
   chickenList.textContent = 'Chicken'
   dipsList.textContent = 'Dips'
+  generateMenu(foodCont)
+
+  chickenList.addEventListener('click', () => {
+    if (!chickenList.classList.contains('activeOption')) {
+      //remove active from diplist
+      generateMenu(foodCont)
+    }
+  })
+
+  dipsList.addEventListener('click', () => {
+    if (!menu.classList.contains('activeOption')) {
+      //remove active from chickenlist
+      generateDips(foodCont)
+    }
+  })
+}
+
+function generateMenu(foodCont) {
+  foodCont.textContent = ""
 
   for (let i = 1; i < 5; i++) {
     const food = document.createElement('div')
@@ -58,6 +82,43 @@ function loadMenu(content) {
       case 4:
         foodImage.src = chicken4
         foodTitle.textContent = 'Honey Glazed'
+        break
+    }
+    foodTitle.appendChild(foodNewLine)
+  }
+}
+
+function generateDips(foodCont) {
+  foodCont.textContent = ""
+
+  for (let i = 1; i < 5; i++) {
+    const food = document.createElement('div')
+    const foodImage = document.createElement('img')
+    const foodTitle = document.createElement('p')
+    const foodNewLine = document.createElement('span')
+    foodImage.classList.add('food-image')
+    foodTitle.classList.add('food-title')
+    food.classList.add('food-card')
+    foodNewLine.textContent = 'Sauce'
+    foodCont.appendChild(food)
+    food.append(foodImage, foodTitle)
+
+    switch (i) {
+      case 1:
+        foodImage.src = sauce1
+        foodTitle.textContent = 'Honey Mustard'
+        break
+      case 2:
+        foodImage.src = sauce2
+        foodTitle.textContent = 'Spicy Barbecue'
+        break
+      case 3:
+        foodImage.src = sauce3
+        foodTitle.textContent = 'Garlic Aioli'
+        break
+      case 4:
+        foodImage.src = sauce4
+        foodTitle.textContent = 'Sweet Chili'
         break
     }
     foodTitle.appendChild(foodNewLine)
